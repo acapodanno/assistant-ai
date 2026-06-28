@@ -8,6 +8,7 @@ LOADER_MAP = {
     ".txt":  lambda path: TextLoader(file_path=path, encoding="utf-8"),
     ".pdf":  lambda path: PyPDFLoader(file_path=path),
 }
+
 def retrieve_documents() -> list[Document]:
     kb_root = "./data/knowledge_base"
     documents = []
@@ -17,7 +18,6 @@ def retrieve_documents() -> list[Document]:
             ext = os.path.splitext(filename)[1].lower()
             loader_factory = LOADER_MAP.get(ext)
             if loader_factory is None:
-                print(f"Formato non supportato, saltato: {filepath}")
                 continue
             loader = loader_factory(filepath)
             docs = loader.load()
@@ -27,19 +27,16 @@ def retrieve_documents() -> list[Document]:
                 doc.metadata["source"] = filepath
                 doc.metadata["category"] = category
             documents.extend(docs)
-
     return documents
 
 SEPARATORS_MAP = {
     "md":   ["\n# ", "\n## ", "\n### ", "\n\n", "\n", " ", ""],
     "pdf":  ["\n\n", "\n", ". ", " ", ""],
-    "docx": ["\n\n", "\n", ". ", " ", ""],
     "txt":  ["\n\n", "\n", " ", ""],
 }
 
 def chunk_documents(documents: list[Document]) -> list[Document]:
     chunked = []
-
     for doc in documents:
         file_type = doc.metadata.get("file_type", "txt")
         separators = SEPARATORS_MAP.get(file_type, ["\n\n", "\n", " ", ""])
@@ -50,5 +47,4 @@ def chunk_documents(documents: list[Document]) -> list[Document]:
             length_function=len,
         )
         chunked.extend(splitter.split_documents([doc]))
-
     return chunked

@@ -1,7 +1,3 @@
-"""
-RAG Chain per GreenThumb Marketplace.
-Usa LCEL (LangChain Expression Language) via langchain_core + langchain_openai.
-"""
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
@@ -28,9 +24,7 @@ prompt = ChatPromptTemplate.from_messages([
     ("human", "{input}"),
 ])
 
-
 def _format_docs(docs: list[Document]) -> str:
-    """Formatta i documenti recuperati in un contesto leggibile dall'LLM."""
     parts = []
     for doc in docs:
         source = doc.metadata.get("source", "fonte sconosciuta")
@@ -38,14 +32,8 @@ def _format_docs(docs: list[Document]) -> str:
         parts.append(f"[{filename}]\n{doc.page_content.strip()}")
     return "\n\n---\n\n".join(parts)
 
-
 def setup_rag_chain(retriever=None):
-    """
-    Costruisce una LCEL chain: retriever → format_docs → prompt → llm → parser.
-    Se retriever è None, la chain accetta direttamente {"input": ..., "context": [docs]}.
-    """
     if retriever is not None:
-        # Chain completa con retriever LangChain
         chain = (
             {"context": retriever | _format_docs, "input": RunnablePassthrough()}
             | prompt
@@ -54,11 +42,10 @@ def setup_rag_chain(retriever=None):
         )
         return chain
     else:
-        # Chain manuale: il contesto viene passato già recuperato
         chain = prompt | llm | StrOutputParser()
 
         def invoke_with_docs(inputs: dict) -> dict:
-            docs: list[Document] = inputs.get("context", [])
+            docs = inputs.get("context", [])
             context_str = _format_docs(docs)
             answer = chain.invoke({"input": inputs["input"], "context": context_str})
             return {"answer": answer, "context": docs}

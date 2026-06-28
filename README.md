@@ -6,191 +6,90 @@
 ## 📋 Contesto aziendale
 
 **GreenThumb Marketplace** è un e-commerce specializzato in articoli per il giardinaggio.
-Riceve centinaia di richieste al giorno di natura eterogenea:
-
-- 🌿 Domande sui prodotti
-- 📦 Stato degli ordini
-- 🪴 Consigli agronomici
-- 🔄 Gestione resi
-
-L'azienda introduce un assistente AI che risponde autonomamente alle richieste di **primo livello**, recupera informazioni dal catalogo e consulta lo stato degli ordini, mantenendo coerenza nella conversazione.
+L'assistente AI risponde autonomamente alle richieste di primo livello, recupera informazioni dalla knowledge base (RAG) e consulta lo stato degli ordini, effettuando l'escalation con apertura ticket quando necessario.
 
 ---
 
-## 🎯 Obiettivi del progetto
-
-| # | Obiettivo |
-|---|-----------|
-| 1 | Implementare un agente con loop **ReAct** usando **LangChain** e **LiteLLM** |
-| 2 | Esporre almeno **3 tool**: ricerca catalogo (RAG), stato ordine, escalation operatore umano |
-| 3 | Gestire **memoria a breve termine** (trimming o summarization) e **memoria a lungo termine** semantica (RAG su knowledge base aziendale) |
-| 4 | Produrre risposte in **structured output** JSON: `answer`, `confidence`, `sources`, `needs_human` |
-| 5 | Valutare l'agente con almeno una metrica **RAGAS** e una **DeepEval** |
-| 6 | Deployare l'agente come API con **FastAPI** o **Chainlit** in locale |
-
----
-
-## 📁 Struttura del progetto
+## 📁 Struttura del progetto aggiornata
 
 ```
 assistant-ai/
 │
-├── 📄 .env                          # API keys (OPENAI_API_KEY, ecc.)
-├── 📄 requirements.txt
+├── 📄 .env                          # Chiavi API (OpenAI)
+├── 📄 Pipfile                       # Dipendenze Pipenv
+├── 📄 main.py                       # [NUOVO] Script di test integrato 100% auticonsistente
+├── 📄 GreenThumb_Assistant_Colab.ipynb # [NUOVO] Notebook Jupyter interattivo per Colab/Locale
 ├── 📄 README.md
 │
 ├── 📁 data/
-│   ├── 📄 orders.json               # 20+ ordini fittizi
+│   ├── 📄 orders.json               # Database degli ordini di test
 │   └── 📁 knowledge_base/
 │       ├── 📁 prodotti/             # Schede prodotto (.txt/.pdf)
 │       ├── 📁 guide/                # Guide agronomiche
 │       └── 📁 policy/               # Policy resi e spedizioni
 │
 ├── 📁 src/
-│   ├── 📄 schemas.py                # Pydantic: AgentResponse
 │   ├── 📁 agent/
-│   │   ├── 📄 react_agent.py        # Loop ReAct (LangChain)
-│   │   ├── 📄 tools.py              # 3 tool: catalog, ordine, escalation
-│   │   └── 📄 memory.py             # Trimming + RAG memory
+│   │   ├── 📄 react_agent.py        # Agente autonomo ReAct (LiteLLM)
+│   │   ├── 📄 tools.py              # Tool: get_order_by_id, create_ticket, rag_knowledge_base
+│   │   └── 📁 models/               # Modelli Pydantic (ticket.py, agent_response.py)
 │   ├── 📁 rag/
-│   │   ├── 📄 ingestion.py          # Chunking + embedding → ChromaDB
-│   │   └── 📄 retriever.py          # Retriever semantico
+│   │   ├── 📄 ingestion.py          # Chunking + loading
+│   │   ├── 📄 retriever.py          # Retriever ibrido (ChromaDB MMR + BM25 con fusione RRF)
+│   │   ├── 📄 rag_chain.py          # Catena RAG LCEL (citazione obbligatoria [source.md])
+│   │   └── 📄 run_ingestion.py      # Esecuzione indicizzazione database RAG
 │   └── 📁 api/
 │       ├── 📄 main.py               # FastAPI app
-│       └── 📄 chainlit_app.py       # UI chat locale
+│       └── 📄 chainlit_app.py       # Interfaccia Chat Web Chainlit
 │
-├── 📁 evaluation/
-│   ├── 📄 test_dataset.json         # ≥15 conversazioni di test
-│   ├── 📄 eval_ragas.py             # Metrica RAGAS (es. faithfulness)
-│   └── 📄 eval_deepeval.py          # Metrica DeepEval (es. G-Eval)
-│
-└── 📁 tests/
-    └── 📄 test_agent.py             # Pytest unit tests
+└── 📁 evaluation/
+    ├── 📄 test_dataset_rag.json     # [NUOVO] 15 domande KB pure per RAG
+    ├── 📄 test_dataset_agent.json   # [NUOVO] 10 scenari complessi per l'Agente
+    ├── 📄 eval_ragas.py             # Valutazione RAG pura (Ragas 0.4.x)
+    └── 📄 eval_deepeval.py          # Valutazione Agent & Tools (DeepEval)
 ```
 
 ---
 
-## 📦 Dataset
+## ⚙️ Installazione ed Avvio Rapido
 
-- **Knowledge base**: almeno **30 documenti** tra schede prodotto, guide agronomiche e policy resi/spedizioni
-- **`data/orders.json`**: almeno **20 ordini** fittizi con campi: id, cliente, prodotti, stato, data prevista
-
----
-
-## 💬 Esempio di interazione
-
-**Request:**
-
-```http
-POST /chat
-Content-Type: application/json
-
-{
-  "message": "Quando arriva l'ordine 1042? Posso piantare adesso i bulbi di tulipano?"
-}
-```
-
-**Response:**
-
-```json
-{
-  "answer": "L'ordine 1042 arriva domani. I tulipani vanno piantati in autunno (ottobre-novembre): conservali in luogo fresco fino a settembre.",
-  "confidence": "high",
-  "sources": ["guides/bulbi_autunnali.md"],
-  "needs_human": false
-}
-```
-
----
-
-## ⚙️ Installazione
-
+### 1. Setup Locale
 ```bash
-# 1. Clona il repository
-git clone <repo-url>
-cd assistant-ai
-
-# 2. Installa pipenv (se non già presente)
-pip install pipenv
-
-# 3. Installa tutte le dipendenze e crea il virtualenv
-pipenv install
-
-# 4. Installa anche le dipendenze di sviluppo (test, linting)
+# Installa dipendenze ed entra nel virtualenv
 pipenv install --dev
-
-# 5. Attiva il virtualenv
 pipenv shell
 
-# 6. Configura le variabili d'ambiente
-cp .env.example .env
-# → Inserisci la tua OPENAI_API_KEY (o altra chiave LLM) nel file .env
+# Configura le chiavi API nel file .env
+cp .env.example .env # ed imposta la tua OPENAI_API_KEY
 ```
+## 🚀 Esecuzione dei Servizi Web
 
-> **Tip**: usa `pipenv run <comando>` per eseguire comandi senza attivare la shell:
-> ```bash
-> pipenv run uvicorn src.api.main:app --reload
-> pipenv run pytest
-> ```
-
----
-
-## 🚀 Avvio
-
-### FastAPI
-
+### API FastAPI
 ```bash
-uvicorn src.api.main:app --reload
-# → http://localhost:8000/docs
+pipenv run uvicorn src.api.main:app --reload --port 8000
+# http://localhost:8000/docs
 ```
 
-### Chainlit
-
+### Interfaccia Chat Chainlit
 ```bash
-chainlit run src/api/chainlit_app.py
-# → http://localhost:8000
+pipenv run chainlit run src/api/chainlit_app.py --port 8501
+# http://localhost:8501
 ```
 
 ---
 
-## 🧪 Valutazione
+## 🧪 Suite di Valutazione Disaccoppiata
 
+Ho separato e ottimizzato la valutazione per testare i componenti singolarmente evitando degradazioni:
+
+### A. Valutazione RAG (Ragas)
+Valuta Faithfulness, Answer Relevancy e Context Recall sul dataset `evaluation/test_dataset_rag.json` caricando il retriever ibrido originale (BM25 + MMR).
 ```bash
-# Metriche RAGAS
-python evaluation/eval_ragas.py
-
-# Metriche DeepEval
-python evaluation/eval_deepeval.py
+pipenv run ./evaluation/eval_ragas.py
 ```
 
-Il dataset di evaluation contiene **almeno 15 conversazioni** con domande attese, risposte di riferimento e commento ai risultati ottenuti.
-
----
-
-## 📝 Convenzioni di codice
-
-- **Nomi di variabili, funzioni**: `snake_case` sempre in inglese
-- **Nomi di classi**: `CamelCase` sempre in inglese
-- **Documentazione**: `docstring` obbligatoria per ogni funzione e classe
-- **Formattazione**: `black` + `ruff`
-
----
-
-## 🛠️ Stack tecnologico
-
-| Componente | Tecnologia |
-|---|---|
-| LLM Framework | LangChain + LiteLLM |
-| Vector Store | ChromaDB |
-| Embedding | sentence-transformers |
-| API | FastAPI + Uvicorn |
-| UI Chat | Chainlit |
-| Evaluation | RAGAS + DeepEval |
-| Validazione | Pydantic v2 |
-| Testing | Pytest |
-
----
-
-## 📄 Licenza
-
-Progetto a scopo didattico — GreenThumb Marketplace è un'azienda fittizia.
+### B. Valutazione Agente & Strumenti (DeepEval)
+Valuta l'Answer Relevancy e la Correctness (GEval) dell'agente nel gestire escalation, ticket, e lookup di ordini sul dataset `evaluation/test_dataset_agent.json`.
+```bash
+pipenv run ./evaluation/eval_deepeval.py
+```
