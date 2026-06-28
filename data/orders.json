@@ -1,0 +1,321 @@
+[
+  {
+    "order_id": "1001",
+    "customer": {"name": "Marco Rossi", "email": "marco.rossi@email.it", "phone": "+39 333 1234567"},
+    "products": [
+      {"name": "Vanga professionale acciaio inox", "sku": "ATT-001", "qty": 1, "price": 34.90},
+      {"name": "Guanti da giardinaggio taglia L", "sku": "ACC-012", "qty": 2, "price": 8.50}
+    ],
+    "total": 51.90,
+    "status": "consegnato",
+    "payment": "carta di credito",
+    "shipping_address": "Via Roma 12, 20100 Milano",
+    "order_date": "2026-06-15",
+    "delivery_date": "2026-06-18",
+    "tracking": "GLS-IT-990011223"
+  },
+  {
+    "order_id": "1002",
+    "customer": {"name": "Giulia Bianchi", "email": "giulia.b@email.it", "phone": "+39 347 9876543"},
+    "products": [
+      {"name": "Bulbi di tulipano mix colori (50 pz)", "sku": "BUL-030", "qty": 3, "price": 12.90},
+      {"name": "Terriccio universale 20L", "sku": "SEM-005", "qty": 2, "price": 9.90}
+    ],
+    "total": 58.50,
+    "status": "in spedizione",
+    "payment": "PayPal",
+    "shipping_address": "Corso Italia 88, 10100 Torino",
+    "order_date": "2026-06-25",
+    "delivery_date": "2026-06-29",
+    "tracking": "BRT-IT-445566778"
+  },
+  {
+    "order_id": "1003",
+    "customer": {"name": "Luca Ferrari", "email": "l.ferrari@email.it", "phone": "+39 320 5551234"},
+    "products": [
+      {"name": "Annaffiatoio da 10L in plastica riciclata", "sku": "ACC-045", "qty": 1, "price": 19.90},
+      {"name": "Fertilizzante per piante grasse 500ml", "sku": "FER-008", "qty": 1, "price": 7.50}
+    ],
+    "total": 27.40,
+    "status": "in elaborazione",
+    "payment": "bonifico",
+    "shipping_address": "Via Garibaldi 5, 40100 Bologna",
+    "order_date": "2026-06-26",
+    "delivery_date": "2026-06-30",
+    "tracking": null
+  },
+  {
+    "order_id": "1004",
+    "customer": {"name": "Anna Colombo", "email": "anna.colombo@email.it", "phone": "+39 388 7778889"},
+    "products": [
+      {"name": "Set sementi erbe aromatiche (basilico, prezzemolo, menta)", "sku": "SEM-011", "qty": 1, "price": 15.90},
+      {"name": "Vasi terracotta 15cm (set 6 pz)", "sku": "VAS-022", "qty": 1, "price": 22.00}
+    ],
+    "total": 37.90,
+    "status": "consegnato",
+    "payment": "carta di credito",
+    "shipping_address": "Via Manzoni 3, 50100 Firenze",
+    "order_date": "2026-06-10",
+    "delivery_date": "2026-06-13",
+    "tracking": "SDA-IT-887766554"
+  },
+  {
+    "order_id": "1005",
+    "customer": {"name": "Paolo Marino", "email": "p.marino@email.it", "phone": "+39 366 4445556"},
+    "products": [
+      {"name": "Tosaerba elettrico 1200W", "sku": "ATT-088", "qty": 1, "price": 149.90}
+    ],
+    "total": 149.90,
+    "status": "reso in corso",
+    "payment": "carta di credito",
+    "shipping_address": "Viale Europa 77, 80100 Napoli",
+    "order_date": "2026-06-12",
+    "delivery_date": "2026-06-16",
+    "tracking": "GLS-IT-112233445",
+    "return_reason": "prodotto difettoso, lama non funzionante"
+  },
+  {
+    "order_id": "1006",
+    "customer": {"name": "Sofia Ricci", "email": "sofia.ricci@email.it", "phone": "+39 331 2223334"},
+    "products": [
+      {"name": "Pianta succulenta Echeveria 12cm", "sku": "PIA-005", "qty": 2, "price": 11.90},
+      {"name": "Substrato per cactus e succulente 5L", "sku": "SEM-019", "qty": 1, "price": 8.90}
+    ],
+    "total": 32.70,
+    "status": "consegnato",
+    "payment": "PayPal",
+    "shipping_address": "Via Dante 14, 25100 Brescia",
+    "order_date": "2026-06-14",
+    "delivery_date": "2026-06-17",
+    "tracking": "TNT-IT-667788990"
+  },
+  {
+    "order_id": "1007",
+    "customer": {"name": "Francesco Gallo", "email": "f.gallo@email.it", "phone": "+39 340 8889990"},
+    "products": [
+      {"name": "Forbici da potatura professionale", "sku": "ATT-033", "qty": 1, "price": 28.50},
+      {"name": "Guanti da giardinaggio taglia M", "sku": "ACC-011", "qty": 1, "price": 8.50},
+      {"name": "Bulbi di giacinto profumato (20 pz)", "sku": "BUL-018", "qty": 2, "price": 9.90}
+    ],
+    "total": 56.80,
+    "status": "in spedizione",
+    "payment": "carta di credito",
+    "shipping_address": "Via Verdi 9, 37100 Verona",
+    "order_date": "2026-06-24",
+    "delivery_date": "2026-06-29",
+    "tracking": "BRT-IT-223344556"
+  },
+  {
+    "order_id": "1008",
+    "customer": {"name": "Elena Esposito", "email": "elena.e@email.it", "phone": "+39 377 1112223"},
+    "products": [
+      {"name": "Serra da balcone 4 ripiani", "sku": "STR-007", "qty": 1, "price": 59.90}
+    ],
+    "total": 59.90,
+    "status": "consegnato",
+    "payment": "bonifico",
+    "shipping_address": "Corso Vittorio 45, 70100 Bari",
+    "order_date": "2026-06-05",
+    "delivery_date": "2026-06-10",
+    "tracking": "GLS-IT-334455667"
+  },
+  {
+    "order_id": "1009",
+    "customer": {"name": "Roberto Conti", "email": "r.conti@email.it", "phone": "+39 344 6667778"},
+    "products": [
+      {"name": "Innaffiatoio automatico programmabile", "sku": "ACC-099", "qty": 1, "price": 45.00},
+      {"name": "Terriccio per orto biologico 40L", "sku": "SEM-007", "qty": 3, "price": 14.90}
+    ],
+    "total": 89.70,
+    "status": "in elaborazione",
+    "payment": "carta di credito",
+    "shipping_address": "Via Po 22, 10100 Torino",
+    "order_date": "2026-06-26",
+    "delivery_date": "2026-06-30",
+    "tracking": null
+  },
+  {
+    "order_id": "1010",
+    "customer": {"name": "Chiara Lombardi", "email": "chiara.l@email.it", "phone": "+39 328 5556667"},
+    "products": [
+      {"name": "Pianta di lavanda in vaso 14cm", "sku": "PIA-022", "qty": 3, "price": 13.90},
+      {"name": "Fertilizzante naturale per aromatiche 250ml", "sku": "FER-015", "qty": 1, "price": 6.90}
+    ],
+    "total": 48.60,
+    "status": "consegnato",
+    "payment": "PayPal",
+    "shipping_address": "Via Leopardi 7, 20100 Milano",
+    "order_date": "2026-06-18",
+    "delivery_date": "2026-06-21",
+    "tracking": "SDA-IT-556677889"
+  },
+  {
+    "order_id": "1011",
+    "customer": {"name": "Matteo Moretti", "email": "m.moretti@email.it", "phone": "+39 360 3334445"},
+    "products": [
+      {"name": "Rastrello in acciaio 14 denti", "sku": "ATT-055", "qty": 1, "price": 18.90},
+      {"name": "Zappe da orto set 3 pezzi", "sku": "ATT-066", "qty": 1, "price": 24.90}
+    ],
+    "total": 43.80,
+    "status": "reso completato",
+    "payment": "carta di credito",
+    "shipping_address": "Via Cavour 33, 16100 Genova",
+    "order_date": "2026-06-01",
+    "delivery_date": "2026-06-05",
+    "tracking": "GLS-IT-998877665",
+    "return_reason": "taglia errata, prodotti danneggiati durante la spedizione",
+    "refund_date": "2026-06-12"
+  },
+  {
+    "order_id": "1012",
+    "customer": {"name": "Valentina Greco", "email": "v.greco@email.it", "phone": "+39 392 7778889"},
+    "products": [
+      {"name": "Sementi pomodoro ciliegino bio", "sku": "SEM-031", "qty": 2, "price": 4.90},
+      {"name": "Sementi zucchine bio", "sku": "SEM-032", "qty": 2, "price": 4.90},
+      {"name": "Cassetta da semina 40x25cm", "sku": "VAS-055", "qty": 3, "price": 5.90}
+    ],
+    "total": 37.30,
+    "status": "consegnato",
+    "payment": "PayPal",
+    "shipping_address": "Via Marconi 18, 90100 Palermo",
+    "order_date": "2026-05-10",
+    "delivery_date": "2026-05-14",
+    "tracking": "BRT-IT-112234556"
+  },
+  {
+    "order_id": "1013",
+    "customer": {"name": "Simone Barbieri", "email": "s.barbieri@email.it", "phone": "+39 355 2223334"},
+    "products": [
+      {"name": "Irrigatore oscillante per giardino", "sku": "ACC-077", "qty": 1, "price": 35.90},
+      {"name": "Tubo da giardino espandibile 30m", "sku": "ACC-088", "qty": 1, "price": 29.90}
+    ],
+    "total": 65.80,
+    "status": "in spedizione",
+    "payment": "carta di credito",
+    "shipping_address": "Piazza Navona 2, 00100 Roma",
+    "order_date": "2026-06-25",
+    "delivery_date": "2026-06-29",
+    "tracking": "TNT-IT-445566778"
+  },
+  {
+    "order_id": "1014",
+    "customer": {"name": "Laura Santoro", "email": "l.santoro@email.it", "phone": "+39 348 9990001"},
+    "products": [
+      {"name": "Pianta di rosmarino in vaso 12cm", "sku": "PIA-031", "qty": 2, "price": 7.90},
+      {"name": "Pianta di salvia officinalis 12cm", "sku": "PIA-032", "qty": 1, "price": 7.90},
+      {"name": "Pianta di timo limone 12cm", "sku": "PIA-033", "qty": 1, "price": 7.90}
+    ],
+    "total": 31.60,
+    "status": "consegnato",
+    "payment": "PayPal",
+    "shipping_address": "Via Garibaldi 71, 95100 Catania",
+    "order_date": "2026-06-15",
+    "delivery_date": "2026-06-19",
+    "tracking": "SDA-IT-778899001"
+  },
+  {
+    "order_id": "1015",
+    "customer": {"name": "Andrea Vitale", "email": "a.vitale@email.it", "phone": "+39 370 4445556"},
+    "products": [
+      {"name": "Compostiera da giardino 300L", "sku": "STR-022", "qty": 1, "price": 89.90}
+    ],
+    "total": 89.90,
+    "status": "in elaborazione",
+    "payment": "bonifico",
+    "shipping_address": "Via Rossini 4, 34100 Trieste",
+    "order_date": "2026-06-26",
+    "delivery_date": "2026-06-30",
+    "tracking": null
+  },
+  {
+    "order_id": "1016",
+    "customer": {"name": "Federica Costa", "email": "f.costa@email.it", "phone": "+39 319 8889990"},
+    "products": [
+      {"name": "Bulbi di narciso (30 pz)", "sku": "BUL-025", "qty": 2, "price": 11.90},
+      {"name": "Bulbi di croco misto (40 pz)", "sku": "BUL-026", "qty": 1, "price": 8.90}
+    ],
+    "total": 32.70,
+    "status": "consegnato",
+    "payment": "carta di credito",
+    "shipping_address": "Corso Magenta 56, 20100 Milano",
+    "order_date": "2026-06-08",
+    "delivery_date": "2026-06-11",
+    "tracking": "GLS-IT-221133445"
+  },
+  {
+    "order_id": "1017",
+    "customer": {"name": "Davide Bruno", "email": "d.bruno@email.it", "phone": "+39 333 6667778"},
+    "products": [
+      {"name": "Cesoie per siepi 65cm", "sku": "ATT-077", "qty": 1, "price": 42.90},
+      {"name": "Olio lubrificante per attrezzi 200ml", "sku": "ACC-101", "qty": 2, "price": 5.50}
+    ],
+    "total": 53.90,
+    "status": "consegnato",
+    "payment": "PayPal",
+    "shipping_address": "Via Torino 9, 15100 Alessandria",
+    "order_date": "2026-06-18",
+    "delivery_date": "2026-06-21",
+    "tracking": "BRT-IT-334456678"
+  },
+  {
+    "order_id": "1018",
+    "customer": {"name": "Martina Ferrara", "email": "m.ferrara@email.it", "phone": "+39 346 1112223"},
+    "products": [
+      {"name": "Kit avvio orto urbano completo", "sku": "KIT-001", "qty": 1, "price": 79.90},
+      {"name": "Guida pratica all'orto biologico (libro)", "sku": "LIB-005", "qty": 1, "price": 18.90}
+    ],
+    "total": 98.80,
+    "status": "in spedizione",
+    "payment": "carta di credito",
+    "shipping_address": "Via Roma 100, 60100 Ancona",
+    "order_date": "2026-06-24",
+    "delivery_date": "2026-06-28",
+    "tracking": "TNT-IT-556788990"
+  },
+  {
+    "order_id": "1019",
+    "customer": {"name": "Giuseppe Ruggiero", "email": "g.ruggiero@email.it", "phone": "+39 368 5556667"},
+    "products": [
+      {"name": "Fontana da giardino solare", "sku": "STR-055", "qty": 1, "price": 129.00}
+    ],
+    "total": 129.00,
+    "status": "reso in corso",
+    "payment": "carta di credito",
+    "shipping_address": "Via Napoli 3, 81100 Caserta",
+    "order_date": "2026-06-10",
+    "delivery_date": "2026-06-15",
+    "tracking": "GLS-IT-667788990",
+    "return_reason": "prodotto non conforme alla descrizione, colore diverso"
+  },
+  {
+    "order_id": "1020",
+    "customer": {"name": "Alessia Montanari", "email": "a.montanari@email.it", "phone": "+39 380 3334445"},
+    "products": [
+      {"name": "Pianta rampicante Passiflora in vaso 17cm", "sku": "PIA-066", "qty": 1, "price": 24.90},
+      {"name": "Supporto bambù per rampicanti 180cm", "sku": "STR-033", "qty": 3, "price": 3.90},
+      {"name": "Terriccio per rampicanti e fioriture 15L", "sku": "SEM-025", "qty": 1, "price": 12.90}
+    ],
+    "total": 49.50,
+    "status": "consegnato",
+    "payment": "PayPal",
+    "shipping_address": "Via Emilia 22, 43100 Parma",
+    "order_date": "2026-06-20",
+    "delivery_date": "2026-06-23",
+    "tracking": "SDA-IT-990011334"
+  },
+  {
+    "order_id": "1042",
+    "customer": {"name": "Carlo Benedetti", "email": "c.benedetti@email.it", "phone": "+39 335 7778889"},
+    "products": [
+      {"name": "Bulbi di tulipano Darwin hybrid (25 pz)", "sku": "BUL-042", "qty": 2, "price": 14.90},
+      {"name": "Terriccio per bulbi e rizomi 10L", "sku": "SEM-042", "qty": 1, "price": 10.90}
+    ],
+    "total": 40.70,
+    "status": "in spedizione",
+    "payment": "carta di credito",
+    "shipping_address": "Via Cavour 7, 06100 Perugia",
+    "order_date": "2026-06-25",
+    "delivery_date": "2026-06-28",
+    "tracking": "BRT-IT-778899001"
+  }
+]

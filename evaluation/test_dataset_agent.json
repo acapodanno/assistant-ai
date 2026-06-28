@@ -1,0 +1,62 @@
+[
+    {
+        "query": "Il mio ordine 1001 risulta consegnato ma non ho ricevuto niente. Cosa faccio?",
+        "expected_tool_calls": ["get_order_by_id", "create_ticket"],
+        "expected_issue_type": "MANCATA_CONSEGNA",
+        "ground_truth": "L'agente deve recuperare l'ordine 1001 (Marco Rossi, consegnato il 18/06) e aprire un ticket di tipo MANCATA_CONSEGNA con i dati del cliente e dell'ordine, impostando needs_human: true."
+    },
+    {
+        "query": "Ho ricevuto il pacco dell'ordine 1004 ma i vasi di terracotta sono tutti rotti. Come faccio?",
+        "expected_tool_calls": ["get_order_by_id", "create_ticket"],
+        "expected_issue_type": "PRODOTTO_DANNEGGIATO",
+        "ground_truth": "L'agente deve recuperare l'ordine 1004 (Anna Colombo) e aprire un ticket PRODOTTO_DANNEGGIATO, spiegando che bisogna inviare foto del danno entro 48 ore, con needs_human: true."
+    },
+    {
+        "query": "Vorrei restituire il kit orto urbano che ho comprato con l'ordine 1005. Come procedo?",
+        "expected_tool_calls": ["get_order_by_id", "create_ticket"],
+        "expected_issue_type": "RESO",
+        "ground_truth": "L'agente deve recuperare l'ordine 1005, verificare che il prodotto sia entro i 14 giorni, aprire un ticket di tipo RESO con i dati del cliente, con needs_human: true."
+    },
+    {
+        "query": "Il mio pacco dell'ordine 1002 risulta in spedizione ma vorrei cambiare indirizzo di consegna.",
+        "expected_tool_calls": ["get_order_by_id", "create_ticket"],
+        "expected_issue_type": "ALTRO",
+        "ground_truth": "L'agente deve recuperare l'ordine 1002 (Giulia Bianchi, in spedizione), spiegare che non è possibile modificare l'indirizzo di spedizioni già partite e aprire un ticket ALTRO con needs_human: true."
+    },
+    {
+        "query": "Ho fatto l'ordine 1003 tre giorni fa e non ho ricevuto il tracking.",
+        "expected_tool_calls": ["get_order_by_id"],
+        "expected_issue_type": null,
+        "ground_truth": "L'agente deve recuperare l'ordine 1003 (Luca Ferrari, in elaborazione, tracking null) e informare il cliente che l'ordine è ancora in elaborazione e che il codice tracking arriverà via email una volta spedito."
+    },
+    {
+        "query": "Quali sono le politiche di reso di GreenThumb?",
+        "expected_tool_calls": ["rag_knowledge_base"],
+        "expected_issue_type": null,
+        "ground_truth": "L'agente deve chiamare rag_knowledge_base e rispondere che il cliente può recedere entro 14 giorni, il prodotto deve essere integro e nella confezione originale, le spese di spedizione del reso sono a carico del cliente, e il rimborso viene erogato entro 7 giorni lavorativi."
+    },
+    {
+        "query": "Quanto costa la spedizione e in quanto arriva in Sicilia?",
+        "expected_tool_calls": ["rag_knowledge_base"],
+        "expected_issue_type": null,
+        "ground_truth": "L'agente deve chiamare rag_knowledge_base e rispondere che la spedizione costa 5.90€ (gratuita sopra i 49€) e che per le isole come la Sicilia la consegna richiede 72 ore tramite corrieri GLS, BRT o SDA."
+    },
+    {
+        "query": "Se una pianta mi muore dopo due mesi, me la rimborsate? Ordine 1001.",
+        "expected_tool_calls": ["rag_knowledge_base", "get_order_by_id"],
+        "expected_issue_type": null,
+        "ground_truth": "L'agente deve spiegare (tramite RAG) che la policy copre solo danni da trasporto segnalati entro 48 ore dalla consegna. La morte della pianta dopo mesi non è coperta. Può proporre di aprire un ticket e chiedere se il cliente vuole procedere."
+    },
+    {
+        "query": "Come mi proteggono dalla pioggia le cesoie che vendete?",
+        "expected_tool_calls": ["rag_knowledge_base"],
+        "expected_issue_type": null,
+        "ground_truth": "L'agente deve chiamare rag_knowledge_base e rispondere con le caratteristiche delle cesoie (lame ondulate in acciaio al carbonio 65cm, manici telescopici con ammortizzatore). Se non trova info sulla resistenza alla pioggia, deve dirlo chiaramente."
+    },
+    {
+        "query": "Sono molto arrabbiato! Ho aspettato 5 giorni e l'ordine 1003 non è mai arrivato!",
+        "expected_tool_calls": ["get_order_by_id", "create_ticket"],
+        "expected_issue_type": "MANCATA_CONSEGNA",
+        "ground_truth": "L'agente deve recuperare l'ordine 1003 (in elaborazione, senza tracking), mostrare empatia, spiegare la situazione, e aprire un ticket MANCATA_CONSEGNA con needs_human: true data l'insoddisfazione espressa."
+    }
+]

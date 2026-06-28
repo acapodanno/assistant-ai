@@ -1,0 +1,62 @@
+[
+    {
+        "query": "Quali sono le politiche di reso di GreenThumb?",
+        "ground_truth": "Il cliente ha il diritto di recedere dal contratto entro 14 giorni dalla ricezione del prodotto senza fornire alcuna motivazione. Per avviare un reso, il prodotto deve essere integro, inutilizzato e nella confezione originale. Le spese di spedizione del reso sono a carico del cliente. Il rimborso viene elaborato entro 7 giorni lavorativi dal rientro del pacco nei nostri magazzini."
+    },
+    {
+        "query": "Come faccio a chiedere un rimborso per una pianta arrivata morta?",
+        "ground_truth": "Se una pianta viva giunge danneggiata a causa del trasporto, il cliente deve inviare entro 48 ore dalla consegna una foto del danno all'indirizzo supporto@greenthumb.it o tramite l'assistente che aprirà un ticket urgente. Provvederemo all'invio di una pianta sostitutiva o al rimborso completo senza spese aggiuntive."
+    },
+    {
+        "query": "Che corrieri usate e in quanti giorni arriva il pacco in Sardegna?",
+        "ground_truth": "Le spedizioni vengono elaborate entro 24 ore lavorative. La consegna avviene in 24/48 ore in tutta Italia, ma per le isole (come la Sardegna) richiede 72 ore. Usiamo corrieri espressi come GLS, BRT o SDA."
+    },
+    {
+        "query": "Qual è il pH del vostro terriccio universale? Va bene per i limoni in vaso?",
+        "ground_truth": "Il terriccio universale biologico 20L GreenThumb ha un pH ottimale di 6.5. È una miscela bilanciata ideale per piante da interno, balcone e giardino."
+    },
+    {
+        "query": "Cosa copre la garanzia dei vostri attrezzi da giardinaggio?",
+        "ground_truth": "Tutti i prodotti sono coperti da garanzia legale di conformità di 24 mesi per difetti esistenti alla consegna. Alcuni attrezzi professionali beneficiano di una garanzia estesa del produttore fino a 5 anni. La garanzia non copre danni da uso improprio."
+    },
+    {
+        "query": "Vorrei iniziare a fare il compost. Cosa non devo metterci dentro?",
+        "ground_truth": "Per fare il compost domestico, devi evitare carne, pesce e latticini per non attirare animali ed evitare cattivi odori."
+    },
+    {
+        "query": "Cosa include il Kit orto urbano e quanto costa?",
+        "ground_truth": "Il Kit orto urbano completo include una fioriera in legno rialzata (80x40x80cm), un sacco di terriccio bio, un set di sementi (pomodoro, insalata, basilico) e mini attrezzi. Il prezzo è 79.90€."
+    },
+    {
+        "query": "Come devo potare e curare la lavanda in giardino?",
+        "ground_truth": "La lavanda predilige pieno sole e terreni ben drenati. Bisogna evitare i ristagni d'acqua. Va piantata in autunno o inizio primavera e va potata leggermente dopo la fioritura estiva per mantenerne la forma."
+    },
+    {
+        "query": "Avete un fertilizzante specifico per le piante grasse?",
+        "ground_truth": "Sì, offriamo un Fertilizzante liquido concentrato per piante grasse e succulente da 500ml. È ricco di potassio per prevenire marciumi radicali e va usato ogni 3 settimane. Il prezzo è 7.50€."
+    },
+    {
+        "query": "Quanto costa la spedizione standard?",
+        "ground_truth": "Il costo della spedizione standard è di 5.90€, ma è gratuita per tutti gli ordini superiori a 49.00€."
+    },
+    {
+        "query": "Entro quanti giorni mi rimborsate un reso?",
+        "ground_truth": "Il rimborso viene elaborato entro 7 giorni lavorativi dal rientro del pacco nei nostri magazzini."
+    },
+    {
+        "query": "La garanzia copre i danni se lascio la vanga sotto la pioggia per mesi?",
+        "ground_truth": "No, la garanzia legale o estesa non copre i danni derivanti da un uso improprio o da cattiva manutenzione degli attrezzi."
+    },
+    {
+        "query": "Quante volte devo annaffiare la lavanda?",
+        "ground_truth": "Devi irrigare la lavanda solo quando il terreno è completamente asciutto, poiché teme molto i ristagni d'acqua che causano marciume radicale."
+    },
+    {
+        "query": "Il terriccio universale contiene torba?",
+        "ground_truth": "Sì, il terriccio universale biologico GreenThumb contiene una miscela di torba nera, torba bionda, compost vegetale e humus di lombrico."
+    },
+    {
+        "query": "Il fertilizzante per succulente lo posso mettere tutti i giorni?",
+        "ground_truth": "No, il fertilizzante per piante grasse e succulente va utilizzato ogni 3 settimane."
+    }
+]

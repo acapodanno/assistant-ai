@@ -1,0 +1,37 @@
+# File e cartelle da NON committare nel repo
+
+# Variabili d'ambiente sensibili
+.env
+
+# Virtual environment Python
+.venv/
+venv/
+env/
+
+# Vector store locale (ChromaDB)
+chroma_db/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MacOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp

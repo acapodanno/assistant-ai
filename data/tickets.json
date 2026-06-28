@@ -1,0 +1,419 @@
+[
+    {
+        "ticket_id": 1,
+        "customer": {
+            "name": "Giulia Bianchi",
+            "email": "giulia.b@email.it",
+            "phone": "+39 347 9876543"
+        },
+        "order_id": "1002",
+        "issue_type": "ALTRO",
+        "issue_description": "Il cliente ha chiesto di posticipare la consegna dell'ordine 1002 attualmente in spedizione. Tracking: BRT-IT-445566778. Indirizzo di spedizione: Corso Italia 88, 10100 Torino.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Bulbi di tulipano mix colori (50 pz)",
+                    "sku": "BUL-030",
+                    "qty": 3,
+                    "price": 12.9
+                },
+                {
+                    "name": "Terriccio universale 20L",
+                    "sku": "SEM-005",
+                    "qty": 2,
+                    "price": 9.9
+                }
+            ],
+            "total": 58.5,
+            "shipping_address": "Corso Italia 88, 10100 Torino",
+            "carrier": "BRT",
+            "tracking_number": "BRT-IT-445566778"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T12:01:23.170897"
+    },
+    {
+        "ticket_id": 2,
+        "customer": {
+            "name": "Marco Rossi",
+            "email": "marco.rossi@email.it",
+            "phone": "+39 333 1234567"
+        },
+        "order_id": "1001",
+        "issue_type": "MANCATA_CONSEGNA",
+        "issue_description": "Il cliente riferisce che l'ordine risulta consegnato ma il nome e cognome sull'ordine sono errati, e non ha ricevuto nulla. Nome corretto dovrebbe essere Alessandro Capodanno.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Vanga professionale acciaio inox",
+                    "sku": "ATT-001",
+                    "qty": 1,
+                    "price": 34.9
+                },
+                {
+                    "name": "Guanti da giardinaggio taglia L",
+                    "sku": "ACC-012",
+                    "qty": 2,
+                    "price": 8.5
+                }
+            ],
+            "total": 51.9,
+            "shipping_address": "Via Roma 12, 20100 Milano",
+            "carrier": "GLS",
+            "tracking_number": "GLS-IT-990011223"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T15:20:00.352714"
+    },
+    {
+        "ticket_id": 3,
+        "customer": {
+            "name": "Marco Rossi",
+            "email": "marco.rossi@email.it",
+            "phone": "+39 333 1234567"
+        },
+        "order_id": "1001",
+        "issue_type": "MANCATA_CONSEGNA",
+        "issue_description": "Spedizione inviata all'indirizzo errato. Cliente segnala mancata ricezione del pacco. Indirizzo di consegna attuale è Via Roma 12, 20100 Milano, ma è necessario modificarlo.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Vanga professionale acciaio inox",
+                    "sku": "ATT-001",
+                    "qty": 1,
+                    "price": 34.9
+                },
+                {
+                    "name": "Guanti da giardinaggio taglia L",
+                    "sku": "ACC-012",
+                    "qty": 2,
+                    "price": 8.5
+                }
+            ],
+            "total": 51.9,
+            "shipping_address": "Via Roma 12, 20100 Milano",
+            "carrier": "GLS",
+            "tracking_number": "GLS-IT-990011223"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T15:27:00.756029"
+    },
+    {
+        "ticket_id": 4,
+        "customer": {
+            "name": "Marco Rossi",
+            "email": "marco.rossi@email.it",
+            "phone": "+39 333 1234567"
+        },
+        "order_id": "1001",
+        "issue_type": "MANCATA_CONSEGNA",
+        "issue_description": "Il cliente dichiara di non aver ricevuto l'ordine che risulta consegnato il 2026-06-18 all'indirizzo Via Roma 12, 20100 Milano. Numero di tracking GLS-IT-990011223.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Vanga professionale acciaio inox",
+                    "sku": "ATT-001",
+                    "qty": 1,
+                    "price": 34.9
+                },
+                {
+                    "name": "Guanti da giardinaggio taglia L",
+                    "sku": "ACC-012",
+                    "qty": 2,
+                    "price": 8.5
+                }
+            ],
+            "total": 51.9,
+            "shipping_address": "Via Roma 12, 20100 Milano",
+            "carrier": "GLS",
+            "tracking_number": "GLS-IT-990011223"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:04:34.178138"
+    },
+    {
+        "ticket_id": 5,
+        "customer": {
+            "name": "Anna Colombo",
+            "email": "anna.colombo@email.it",
+            "phone": "+39 388 7778889"
+        },
+        "order_id": "1004",
+        "issue_type": "PRODOTTO_DANNEGGIATO",
+        "issue_description": "La cliente ha ricevuto i vasi di terracotta (ordine consegnato) tutti rotti. L'ordine è stato consegnato il 2026-06-13 tramite SDA con tracking SDA-IT-887766554 all'indirizzo Via Manzoni 3, 50100 Firenze.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Set sementi erbe aromatiche (basilico, prezzemolo, menta)",
+                    "sku": "SEM-011",
+                    "qty": 1,
+                    "price": 15.9
+                },
+                {
+                    "name": "Vasi terracotta 15cm (set 6 pz)",
+                    "sku": "VAS-022",
+                    "qty": 1,
+                    "price": 22
+                }
+            ],
+            "total": 37.9,
+            "shipping_address": "Via Manzoni 3, 50100 Firenze",
+            "carrier": "SDA",
+            "tracking_number": "SDA-IT-887766554"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:04:41.751680"
+    },
+    {
+        "ticket_id": 6,
+        "customer": {
+            "name": "Paolo Marino",
+            "email": "p.marino@email.it",
+            "phone": "+39 366 4445556"
+        },
+        "order_id": "1005",
+        "issue_type": "RESO",
+        "issue_description": "Il cliente desidera restituire il kit orto urbano acquistato con l'ordine 1005.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Tosaerba elettrico 1200W",
+                    "sku": "ATT-088",
+                    "qty": 1,
+                    "price": 149.9
+                }
+            ],
+            "total": 149.9,
+            "shipping_address": "Viale Europa 77, 80100 Napoli",
+            "carrier": "GLS",
+            "tracking_number": "GLS-IT-112233445"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:04:48.612478"
+    },
+    {
+        "ticket_id": 7,
+        "customer": {
+            "name": "Giulia Bianchi",
+            "email": "giulia.b@email.it",
+            "phone": "+39 347 9876543"
+        },
+        "order_id": "1002",
+        "issue_type": "ALTRO",
+        "issue_description": "Il cliente desidera cambiare l'indirizzo di consegna dell'ordine in spedizione, attualmente previsto per l'indirizzo Corso Italia 88, 10100 Torino. Tracking del pacco: BRT-IT-445566778.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Bulbi di tulipano mix colori (50 pz)",
+                    "sku": "BUL-030",
+                    "qty": 3,
+                    "price": 12.9
+                },
+                {
+                    "name": "Terriccio universale 20L",
+                    "sku": "SEM-005",
+                    "qty": 2,
+                    "price": 9.9
+                }
+            ],
+            "total": 58.5,
+            "shipping_address": "Corso Italia 88, 10100 Torino",
+            "carrier": "BRT",
+            "tracking_number": "BRT-IT-445566778"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:04:55.399761"
+    },
+    {
+        "ticket_id": 8,
+        "customer": {
+            "name": "Luca Ferrari",
+            "email": "l.ferrari@email.it",
+            "phone": "+39 320 5551234"
+        },
+        "order_id": "1003",
+        "issue_type": "MANCATA_CONSEGNA",
+        "issue_description": "L'ordine 1003 sarebbe dovuto arrivare il 2026-06-30 ma è ancora in elaborazione e non è stato mai spedito. Indirizzo di spedizione: Via Garibaldi 5, 40100 Bologna.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Annaffiatoio da 10L in plastica riciclata",
+                    "sku": "ACC-045",
+                    "qty": 1,
+                    "price": 19.9
+                },
+                {
+                    "name": "Fertilizzante per piante grasse 500ml",
+                    "sku": "FER-008",
+                    "qty": 1,
+                    "price": 7.5
+                }
+            ],
+            "total": 27.4,
+            "shipping_address": "Via Garibaldi 5, 40100 Bologna",
+            "carrier": null,
+            "tracking_number": null
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:05:28.394937"
+    },
+    {
+        "ticket_id": 9,
+        "customer": {
+            "name": "Marco Rossi",
+            "email": "marco.rossi@email.it",
+            "phone": "+39 333 1234567"
+        },
+        "order_id": "1001",
+        "issue_type": "MANCATA_CONSEGNA",
+        "issue_description": "Il cliente segnala che l'ordine 1001 risulta consegnato il 18 giugno 2026 ma non ha ricevuto nulla all'indirizzo Via Roma 12, 20100 Milano.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Vanga professionale acciaio inox",
+                    "sku": "ATT-001",
+                    "qty": 1,
+                    "price": 34.9
+                },
+                {
+                    "name": "Guanti da giardinaggio taglia L",
+                    "sku": "ACC-012",
+                    "qty": 2,
+                    "price": 8.5
+                }
+            ],
+            "total": 51.9,
+            "shipping_address": "Via Roma 12, 20100 Milano",
+            "carrier": "GLS",
+            "tracking_number": "GLS-IT-990011223"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:11:48.050611"
+    },
+    {
+        "ticket_id": 10,
+        "customer": {
+            "name": "Anna Colombo",
+            "email": "anna.colombo@email.it",
+            "phone": "+39 388 7778889"
+        },
+        "order_id": "1004",
+        "issue_type": "PRODOTTO_DANNEGGIATO",
+        "issue_description": "Il cliente ha ricevuto i Vasi terracotta 15cm (set 6 pz) rotti nell'ordine 1004.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Set sementi erbe aromatiche (basilico, prezzemolo, menta)",
+                    "sku": "SEM-011",
+                    "qty": 1,
+                    "price": 15.9
+                },
+                {
+                    "name": "Vasi terracotta 15cm (set 6 pz)",
+                    "sku": "VAS-022",
+                    "qty": 1,
+                    "price": 22.0
+                }
+            ],
+            "total": 37.9,
+            "shipping_address": "Via Manzoni 3, 50100 Firenze",
+            "carrier": "SDA",
+            "tracking_number": "SDA-IT-887766554"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:11:53.661388"
+    },
+    {
+        "ticket_id": 11,
+        "customer": {
+            "name": "Paolo Marino",
+            "email": "p.marino@email.it",
+            "phone": "+39 366 4445556"
+        },
+        "order_id": "1005",
+        "issue_type": "RESO",
+        "issue_description": "Il cliente desidera restituire il kit orto urbano acquistato con l'ordine 1005.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Tosaerba elettrico 1200W",
+                    "sku": "ATT-088",
+                    "qty": 1,
+                    "price": 149.9
+                }
+            ],
+            "total": 149.9,
+            "shipping_address": "Viale Europa 77, 80100 Napoli",
+            "carrier": "GLS",
+            "tracking_number": "GLS-IT-112233445"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:11:58.595960"
+    },
+    {
+        "ticket_id": 12,
+        "customer": {
+            "name": "Giulia Bianchi",
+            "email": "giulia.b@email.it",
+            "phone": "+39 347 9876543"
+        },
+        "order_id": "1002",
+        "issue_type": "ALTRO",
+        "issue_description": "Il cliente desidera modificare l'indirizzo di consegna per un ordine già in spedizione (ordine 1002) con tracking BRT-IT-445566778. Attuale indirizzo di consegna: Corso Italia 88, 10100 Torino.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Bulbi di tulipano mix colori (50 pz)",
+                    "sku": "BUL-030",
+                    "qty": 3,
+                    "price": 12.9
+                },
+                {
+                    "name": "Terriccio universale 20L",
+                    "sku": "SEM-005",
+                    "qty": 2,
+                    "price": 9.9
+                }
+            ],
+            "total": 58.5,
+            "shipping_address": "Corso Italia 88, 10100 Torino",
+            "carrier": "BRT",
+            "tracking_number": "BRT-IT-445566778"
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:12:04.024179"
+    },
+    {
+        "ticket_id": 13,
+        "customer": {
+            "name": "Luca Ferrari",
+            "email": "l.ferrari@email.it",
+            "phone": "+39 320 5551234"
+        },
+        "order_id": "1003",
+        "issue_type": "MANCATA_CONSEGNA",
+        "issue_description": "L'ordine non è mai arrivato anche dopo 5 giorni dall'acquisto, nonostante fosse previsto per il 30 giugno 2026. Nessuna informazione di tracking disponibile.",
+        "order_details": {
+            "products": [
+                {
+                    "name": "Annaffiatoio da 10L in plastica riciclata",
+                    "sku": "ACC-045",
+                    "qty": 1,
+                    "price": 19.9
+                },
+                {
+                    "name": "Fertilizzante per piante grasse 500ml",
+                    "sku": "FER-008",
+                    "qty": 1,
+                    "price": 7.5
+                }
+            ],
+            "total": 27.4,
+            "shipping_address": "Via Garibaldi 5, 40100 Bologna",
+            "carrier": null,
+            "tracking_number": null
+        },
+        "status": "OPEN",
+        "created_at": "2026-06-28T21:12:36.097558"
+    }
+]

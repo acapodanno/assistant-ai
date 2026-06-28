@@ -1,0 +1,126 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "get_order_by_id",
+            "description": "Recupera i dettagli completi di un ordine tramite il suo ID. Usare sempre prima di creare un ticket per ottenere i dati aggiornati dell'ordine.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "order_id": {
+                        "type": "string",
+                        "description": "L'ID numerico dell'ordine (es. '1001')"
+                    }
+                },
+                "required": [
+                    "order_id"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "create_ticket",
+            "description": "Apre un ticket di supporto strutturato per escalation verso il team umano. Chiamare SOLO quando non si riesce a risolvere autonomamente il problema del cliente. Popolare tutti i campi con le informazioni disponibili.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "customer": {
+                        "type": "object",
+                        "description": "Oggetto cliente estratto dall'ordine tramite get_order_by_id",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Nome completo del cliente"
+                            },
+                            "email": {
+                                "type": "string",
+                                "description": "Email del cliente"
+                            },
+                            "phone": {
+                                "type": "string",
+                                "description": "Numero di telefono del cliente"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "email",
+                            "phone"
+                        ]
+                    },
+                    "order_id": {
+                        "type": "string",
+                        "description": "ID dell'ordine coinvolto nel problema (es. '1001')"
+                    },
+                    "issue_type": {
+                        "type": "string",
+                        "enum": [
+                            "MANCATA_CONSEGNA",
+                            "PRODOTTO_DANNEGGIATO",
+                            "RESO",
+                            "RIMBORSO",
+                            "ALTRO"
+                        ],
+                        "description": "Categoria del problema: MANCATA_CONSEGNA (pacco non arrivato), PRODOTTO_DANNEGGIATO (arrivato rotto), RESO (vuole restituire), RIMBORSO (vuole rimborso), ALTRO (altri problemi)"
+                    },
+                    "issue_description": {
+                        "type": "string",
+                        "description": "Descrizione concisa e precisa del problema segnalato dal cliente, inclusi dettagli rilevanti come tracking, date e indirizzo"
+                    },
+                    "order_details": {
+                        "type": "object",
+                        "description": "Oggetto con i dettagli dell'ordine recuperati da get_order_by_id: prodotti, importo, date, corriere, tracking",
+                        "properties": {
+                            "products": {
+                                "type": "array",
+                                "description": "Lista dei prodotti dell'ordine"
+                            },
+                            "total": {
+                                "type": "number",
+                                "description": "Totale dell'ordine in EUR"
+                            },
+                            "shipping_address": {
+                                "type": "string",
+                                "description": "Indirizzo di spedizione"
+                            },
+                            "carrier": {
+                                "type": "string",
+                                "description": "Corriere utilizzato (es. GLS)"
+                            },
+                            "tracking_number": {
+                                "type": "string",
+                                "description": "Numero di tracking del corriere"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "customer",
+                    "order_id",
+                    "issue_type",
+                    "issue_description"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "rag_knowledge_base",
+            "description": "Recupera informazioni dalla knowledge base di GreenThumb Marketplace per rispondere a domande sui prodotti, politiche di reso, spedizioni, metodi di pagamento, ecc.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "La domanda del cliente sulla knowledge base"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            }
+        }
+    }
+]

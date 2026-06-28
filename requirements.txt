@@ -1,0 +1,64 @@
+# ============================================================
+# GreenThumb AI Assistant - Requirements
+# Python >= 3.13
+# Versioni gestite da Pipfile.lock — questo file è solo riferimento
+# ============================================================
+
+# --- Core LLM Framework ---
+langchain
+langchain-core
+langchain-community
+langchain-openai
+litellm
+
+# --- Vector Store & RAG ---
+chromadb
+sentence-transformers
+tiktoken
+langchain-chroma
+langchain-text-splitters
+rank-bm25
+
+# --- Document Loading & Processing ---
+pypdf
+python-docx
+beautifulsoup4
+lxml
+
+# --- Structured Output / Data Validation ---
+pydantic
+pydantic-settings
+
+# --- API Server ---
+fastapi
+uvicorn[standard]
+httpx
+
+# --- Chainlit UI ---
+chainlit
+
+# --- Memoria & Sessione ---
+redis
+
+# --- Evaluation: RAGAS ---
+ragas
+
+# --- Evaluation: DeepEval ---
+deepeval
+
+# --- Utility ---
+python-dotenv
+loguru
+tenacity
+numpy
+pandas
+
+# --- Testing ---
+pytest
+pytest-asyncio
+pytest-cov
+
+# --- Development ---
+black
+ruff
+ipykernel

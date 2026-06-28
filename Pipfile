@@ -1,0 +1,47 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+langchain = "*"
+langchain-core = "*"
+langchain-community = "*"
+langchain-openai = "*"
+litellm = "*"
+chromadb = "*"
+sentence-transformers = "*"
+tiktoken = "*"
+langchain-chroma = "*"
+pypdf = "*"
+python-docx = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+pydantic = "*"
+pydantic-settings = "*"
+fastapi = "*"
+httpx = "*"
+chainlit = "*"
+redis = "*"
+ragas = "*"
+deepeval = "*"
+python-dotenv = "*"
+loguru = "*"
+tenacity = "*"
+numpy = "*"
+pandas = "*"
+pytest = "*"
+pytest-asyncio = "*"
+pytest-cov = "*"
+black = "*"
+ruff = "*"
+ipykernel = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+rank-bm25 = "*"
+langchain-text-splitters = "*"
+langchain-google-vertexai = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.13"

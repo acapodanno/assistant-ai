@@ -1,0 +1,49 @@
+import chainlit as cl
+import uuid
+import json
+import asyncio
+from dotenv import load_dotenv
+load_dotenv()
+from src.agent.memory import get_formatted_history, add_to_history
+from src.agent.react_agent import GreenThumbAgent
+from src.rag.run_ingestion import run_ingestion
+
+run_ingestion()
+agent = GreenThumbAgent()
+
+@cl.on_chat_start
+async def on_chat_start():
+    session_id = str(uuid.uuid4())
+    cl.user_session.set("session_id", session_id)
+    await cl.Message(
+        content="Benvenuto su GreenThumb! Sono il tuo assistente virtuale per il giardinaggio. Come posso aiutarti oggi?"
+    ).send()
+
+@cl.on_message
+async def on_message(message: cl.Message):
+    session_id = cl.user_session.get("session_id")
+    user_query = message.content
+    msg = cl.Message(content="")
+    await msg.send()
+    formatted_history = get_formatted_history(session_id)
+    response_json_str = await asyncio.to_thread(
+        agent.run,
+        user_message=user_query,
+        history=formatted_history
+    )    
+    try:
+        response_dict = json.loads(response_json_str)
+        text_answer = response_dict.get("answer", response_json_str)
+        sources = response_dict.get("sources", [])
+    except json.JSONDecodeError:
+        text_answer = response_json_str
+        sources = []
+    if sources:
+        sources_text = "\n\n*(Fonti: " + ", ".join(sources) + ")*"
+        display_text = text_answer + sources_text
+    else:
+        display_text = text_answer
+    add_to_history(session_id, user_query, role="user")
+    add_to_history(session_id, text_answer, role="assistant")
+    msg.content = display_text
+    await msg.update()
