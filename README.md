@@ -56,7 +56,7 @@ assistant-ai/
 ### 1. Setup Locale
 ```bash
 # Installa dipendenze ed entra nel virtualenv
-pipenv install --dev
+pipenv install
 pipenv shell
 
 # Configura le chiavi API nel file .env
