@@ -58,10 +58,57 @@ assistant-ai/
 # Installa dipendenze ed entra nel virtualenv
 pipenv install
 pipenv shell
-
-# Configura le chiavi API nel file .env
-cp .env.example .env # ed imposta la tua OPENAI_API_KEY
 ```
+
+Configura le variabili d'ambiente copiando il file di esempio:
+```bash
+cp .env.example .env
+```
+
+Poi modifica `.env` con le tue credenziali (vedi sezione [Autenticazione GitHub](#-autenticazione-github-chainlit-oauth2) qui sotto):
+```env
+OPENAI_API_KEY=sk-...
+PYTHONPATH=.
+
+# GitHub OAuth2 (richiesto per l'interfaccia Chainlit)
+OAUTH_GITHUB_CLIENT_ID=...
+OAUTH_GITHUB_CLIENT_SECRET=...
+CHAINLIT_AUTH_SECRET=...
+```
+
+---
+
+## 🔐 Autenticazione GitHub (Chainlit OAuth2)
+
+L'interfaccia Chat Chainlit usa **GitHub come provider OAuth2** per autenticare gli utenti. Segui questi passaggi per configurarla:
+
+### Step 1 — Crea una GitHub OAuth App
+1. Vai su [GitHub → Settings → Developer settings → OAuth Apps](https://github.com/settings/developers)
+2. Clicca su **"New OAuth App"**
+3. Compila i campi:
+   - **Application name**: `GreenThumb AI Assistant`
+   - **Homepage URL**: `http://localhost:8501`
+   - **Authorization callback URL**: `http://localhost:8501/auth/oauth/github/callback`
+4. Clicca **"Register application"**
+5. Copia il **Client ID** e genera un **Client Secret**
+
+### Step 2 — Genera il CHAINLIT_AUTH_SECRET
+```bash
+# Genera una chiave casuale sicura
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+### Step 3 — Aggiorna il file `.env`
+```env
+OAUTH_GITHUB_CLIENT_ID=<il tuo Client ID>
+OAUTH_GITHUB_CLIENT_SECRET=<il tuo Client Secret>
+CHAINLIT_AUTH_SECRET=<il valore generato al Step 2>
+```
+
+> **Nota:** Per un deploy in produzione, sostituisci `localhost:8501` con il tuo dominio reale nella callback URL dell'OAuth App GitHub.
+
+---
+
 ## 🚀 Esecuzione dei Servizi Web
 
 ### API FastAPI
@@ -70,10 +117,10 @@ pipenv run uvicorn src.api.main:app --reload --port 8000
 # http://localhost:8000/docs
 ```
 
-### Interfaccia Chat Chainlit
+### Interfaccia Chat Chainlit (con login GitHub)
 ```bash
 pipenv run chainlit run src/api/chainlit_app.py --port 8501
-# http://localhost:8501
+# http://localhost:8501  →  login automatico con GitHub
 ```
 
 ---
@@ -93,3 +140,30 @@ Valuta l'Answer Relevancy e la Correctness (GEval) dell'agente nel gestire escal
 ```bash
 pipenv run ./evaluation/eval_deepeval.py
 ```
+
+
+---
+
+## 📚 Reference Documentation
+
+| Libreria | Descrizione | Docs |
+|---|---|---|
+| **FastAPI** | Framework API REST asincrono | [fastapi.tiangolo.com](https://fastapi.tiangolo.com/) |
+| **Chainlit** | UI chat per agenti AI con OAuth2 | [docs.chainlit.io](https://docs.chainlit.io/overview) |
+| **LiteLLM** | Proxy unificato per LLM (OpenAI, Anthropic, ecc.) | [docs.litellm.ai](https://docs.litellm.ai/) |
+| **LangChain** | Framework per catene RAG e retrieval | [docs.langchain.com](https://docs.langchain.com/) |
+| **Ragas** | Valutazione automatica pipeline RAG | [docs.ragas.io](https://docs.ragas.io/en/stable/) |
+| **DeepEval** | Framework di testing per LLM e agenti | [docs.deepeval.ai](https://docs.deepeval.ai/) |
+| **Pydantic** | Validazione e serializzazione dei dati | [docs.pydantic.dev](https://docs.pydantic.dev/latest/) |
+| **Loguru** | Logging strutturato e leggibile | [pypi.org/loguru](https://pypi.org/project/loguru/) |
+
+---
+
+## 🔮 Next Implementation
+
+- **MCP (Model Context Protocol)** — Integrazione con server MCP per esporre tool e risorse all'agente in modo standardizzato
+- **Redis** — Sostituzione dell'in-memory store con Redis per la gestione persistente delle sessioni e della chat history tra riavvii del server
+- **Database reale** — Connessione a PostgreSQL/MongoDB per ordini, ticket e profili utente al posto dei file JSON statici
+- **Cloud Provider** — Deploy dell'intera stack su infrastruttura cloud:
+  - **AWS**: FastAPI su ECS/Fargate, Chainlit su App Runner, Redis con ElastiCache, ChromaDB su EFS o migrazione a OpenSearch
+  - **Azure**: Container Apps, Azure Cache for Redis, Azure OpenAI Service per i modelli LLM
