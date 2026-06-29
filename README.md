@@ -95,7 +95,7 @@ L'interfaccia Chat Chainlit usa **GitHub come provider OAuth2** per autenticare 
 ### Step 2 — Genera il CHAINLIT_AUTH_SECRET
 ```bash
 # Genera una chiave casuale sicura
-python -c "import secrets; print(secrets.token_hex(32))"
+pipenv run chainlint create-secret
 ```
 
 ### Step 3 — Aggiorna il file `.env`
