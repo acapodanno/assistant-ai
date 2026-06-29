@@ -3,8 +3,7 @@ import json
 import os
 from loguru import logger
 from datasets import Dataset
-from src.rag.run_rag import run_rag
-from src.rag.run_ingestion import run_ingestion
+from src.rag import run_rag, run_ingestion
 
 try:
     import sys

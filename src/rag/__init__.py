@@ -1,8 +1,10 @@
 # RAG package
-# Gestisce ingestion dei documenti e recupero semantico
+# Gestisce ingestion dei documenti, recupero semantico e catena RAG
 
-from src.rag.ingestion import retrieve_documents, chunk_documents
-from src.rag.retriever import build_vector_store, get_dense_retriever, get_hybrid_retriever
+from .ingestion import retrieve_documents, chunk_documents
+from .retriever import build_vector_store, get_dense_retriever, get_hybrid_retriever
+from .run_ingestion import run_ingestion
+from .run_rag import run_rag
 
 __all__ = [
     "retrieve_documents",
@@ -10,4 +12,6 @@ __all__ = [
     "build_vector_store",
     "get_dense_retriever",
     "get_hybrid_retriever",
+    "run_ingestion",
+    "run_rag",
 ]

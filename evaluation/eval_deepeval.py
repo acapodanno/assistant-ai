@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import json
 from loguru import logger
-from src.rag.run_ingestion import run_ingestion
-from src.agent.react_agent import GreenThumbAgent
+from src.rag import run_ingestion
+from src.agent import GreenThumbAgent
 from deepeval.metrics import AnswerRelevancyMetric, GEval
 from deepeval.test_case import LLMTestCase, LLMTestCaseParams
 from deepeval import evaluate as deepeval_evaluate
@@ -20,7 +20,7 @@ def run_deepeval():
         try:
             res_obj = json.loads(raw_res)
             act_out = res_obj.get("answer", raw_res)
-        exceptException:
+        except Exception:
             act_out = str(raw_res)
         test_cases.append(LLMTestCase(input=query, actual_output=act_out, expected_output=item["ground_truth"]))
 

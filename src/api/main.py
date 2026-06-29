@@ -1,25 +1,25 @@
-from src.agent.models.agent_response import AgentResponse
-from src.agent.memory import get_formatted_history, add_to_history
-from dotenv import load_dotenv
-load_dotenv()
-
 import json
-from src.rag.run_ingestion import run_ingestion
-from src.agent import GreenThumbAgent
-from src.api.models.chat_request import ChatRequest
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from loguru import logger
+
+from src.agent import GreenThumbAgent, AgentResponse, get_formatted_history, add_to_history
+from src.rag import run_ingestion
+from src.api.models.chat_request import ChatRequest
+
+load_dotenv()
 
 run_ingestion()
 agent = GreenThumbAgent()
 app = FastAPI()
+
 @app.get("/health")
 def health():
     logger.info("Health check endpoint called.")
     return {"status": "ok"}
 
 @app.post("/chat/{session_id}")
-def chat(session_id: str, chat_request: ChatRequest)-> AgentResponse:
+def chat(session_id: str, chat_request: ChatRequest) -> AgentResponse:
     message = chat_request.message
     logger.info(f"Received chat request: {message} for session: {session_id}")
     formatted_history = get_formatted_history(session_id)
@@ -36,5 +36,3 @@ def chat(session_id: str, chat_request: ChatRequest)-> AgentResponse:
     
     logger.info("Chat request processed successfully.")
     return response_dict
-    
-    

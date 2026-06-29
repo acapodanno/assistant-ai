@@ -3,9 +3,9 @@ import uuid
 import json
 import asyncio
 from dotenv import load_dotenv
-from src.agent.memory import get_formatted_history, add_to_history
-from src.agent.react_agent import GreenThumbAgent
-from src.rag.run_ingestion import run_ingestion
+
+from src.agent import GreenThumbAgent, get_formatted_history, add_to_history
+from src.rag import run_ingestion
 
 load_dotenv()
 run_ingestion()
